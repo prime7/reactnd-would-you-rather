@@ -44,8 +44,9 @@ const Header = (props) => {
                     }
                     {props.authUser &&
                         <>
-                        <h4 className="ml-2">Welcome </h4>
-                        <Avatar className="ml-2" src={props.users[props.authUser].avatarURL} size={32}></Avatar>
+                            <h4 className="ml-2">Welcome </h4>
+                            <Avatar className="ml-2" src={props.users[props.authUser].avatarURL} size={32}></Avatar>
+                            <h5 className="ml-2">{props.users[props.authUser].name}</h5>
                         </>
                     }
                     {props.authUser &&
