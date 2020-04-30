@@ -1,3 +1,10 @@
+# Installation
+
+* Clone this repository at first ```git clone https://github.com/prime7/reactnd-myread.git ```
+* ``` cd reactnd-would-you-rather```
+* ``` npm install ``` or ```yarn```
+* ``` npm start ``` or ```yarn start```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
