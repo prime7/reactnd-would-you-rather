@@ -3,13 +3,15 @@ import {Card,Avatar,Col,Row} from 'antd'
 import { connect } from 'react-redux'
 import ErrorPage from './ErrorPage'
 
-class Answered extends Component {
+class Answered extends Component {  
     
     render() {
         const { question, author, authUser,id } = this.props;
         const { optionOne, optionTwo } = question;
         const { name, avatarURL } = author;
         const totalVotes = optionOne.votes.length + optionTwo.votes.length;
+        const optionOnePercent = Math.round((optionOne.votes.length/totalVotes)*100);
+        const optionTwoPercent = Math.round((optionTwo.votes.length/totalVotes)*100);
 
         if (question === null) {
 			return <ErrorPage />;
@@ -29,6 +31,7 @@ class Answered extends Component {
                             <p>Would you rather {optionOne.text}?</p>
                             {optionOne.votes.length} out of {totalVotes}{' '} votes
                             {optionOne.votes.includes(authUser)? <p>You choosed</p>:<></>}
+                            <p>{`${optionOnePercent} % users have choosen this option`}</p>
                         </Card>
                     </Row>
                     <Row>
@@ -36,6 +39,7 @@ class Answered extends Component {
                             <p>Would you rather {optionTwo.text}?</p>
                             {optionTwo.votes.length} out of {totalVotes}{' '} votes
                             {optionTwo.votes.includes(authUser)? <p>You choosed</p>:<></>}
+                            <p>{`${optionTwoPercent} % users have choosen this option`}</p>
                         </Card>
                     </Row>
                 </Col>
