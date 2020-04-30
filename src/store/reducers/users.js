@@ -1,0 +1,36 @@
+import * as types from '../types'
+
+export default function users(state = {}, action) {
+    switch (action.type) {
+        case types.RECEIVE_USERS:
+            return {
+                ...state,
+                ...action.users
+            };
+        case types.ADD_ANSWER_TO_USER:
+            const { authUser, qid, answer } = action;
+  
+            return {
+                ...state,
+                [authUser]: {
+                    ...state[authUser],
+                    answers: {
+                    ...state[authUser].answers,
+                    [qid]: answer
+                    }
+                }
+            };
+        case types.ADD_QUESTION_TO_USER:
+            const { id, author } = action;
+  
+            return {
+                ...state,
+                [author]: {
+                    ...state[author],
+                    questions: state[author].questions.concat(id)
+                }
+            };
+        default:
+            return state;
+    }
+}
