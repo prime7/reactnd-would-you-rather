@@ -21,7 +21,8 @@ class Login extends Component {
     }
     handleSignin = () => {
         this.props.setAuthUser(this.state.user)
-        this.props.history.push("/")
+        // this.props.history.push("/")
+        this.props.history.goBack();
     }
 
     render() {
